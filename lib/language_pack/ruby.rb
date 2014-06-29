@@ -808,10 +808,10 @@ params = CGI.parse(uri.query || "")
       install_bundler_in_app
     end
   end
-  
+
   def generate_jekyll_site
     puts "Building jekyll site"
-    pipe("env PATH=$PATH bundle exec jekyll build 2>&1")
+    pipe("bundle exec jekyll build 2>&1")
     unless $? == 0
       error "Failed to generate site with jekyll."
     end
